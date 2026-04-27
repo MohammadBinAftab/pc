@@ -18,9 +18,9 @@ import {
 // --- DATA ---
 const stats = [
   { label: 'YouTube Subscribers', value: '1.9M+', icon: <Video className="w-6 h-6 text-brand-primary" />, color: 'bg-red-50' },
-  { label: 'Daily Views', value: '10M', icon: <TrendingUp className="w-6 h-6 text-brand-accent" />, color: 'bg-orange-50' },
-  { label: 'Instagram Followers', value: '366k', icon: <Users className="w-6 h-6 text-pink-500" />, color: 'bg-pink-50' },
-  { label: 'Facebook Followers', value: '180k', icon: <Users className="w-6 h-6 text-blue-500" />, color: 'bg-blue-50' },
+  { label: 'Daily Views', value: '10M+', icon: <TrendingUp className="w-6 h-6 text-brand-accent" />, color: 'bg-orange-50' },
+  { label: 'Instagram Followers', value: '366k+', icon: <Users className="w-6 h-6 text-pink-500" />, color: 'bg-pink-50' },
+  { label: 'Facebook Followers', value: '180k+', icon: <Users className="w-6 h-6 text-blue-500" />, color: 'bg-blue-50' },
 ];
 
 const brands = [
@@ -450,22 +450,22 @@ export default function App() {
       <section id="contact" className="py-24 px-6 bg-brand-light border-t border-gray-100">
         <div className="container mx-auto max-w-6xl">
           <div className="bg-white rounded-[40px] shadow-soft overflow-hidden grid md:grid-cols-2">
-            <div className="p-12 md:p-16 bg-brand-secondary text-white relative overflow-hidden">
+            <div className="p-8 sm:p-12 md:p-16 bg-brand-secondary text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-brand-primary rounded-full blur-3xl opacity-20 -mr-20 -mt-20"></div>
               <h2 className="text-4xl md:text-5xl mb-6 text-white relative z-10">Let's grow your brand.</h2>
               <p className="text-gray-300 text-lg mb-10 relative z-10">Ready to tap into an audience of millions? Drop us a line and let's create a campaign that drives real results.</p>
               
               <div className="space-y-6 relative z-10">
-                <a href="mailto:poonambusiness85@gmail.com" className="flex items-center gap-3 md:gap-4 text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
+                <a href="mailto:poonambusiness85@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm sm:text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-white/10 rounded-full flex items-center justify-center">
                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <span className="break-all">poonambusiness85@gmail.com</span>
+                  <span className="truncate">poonambusiness85@gmail.com</span>
                 </a>
               </div>
             </div>
             
-            <div className="p-12 md:p-16">
+            <div className="p-8 sm:p-12 md:p-16">
               <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <label className="block text-sm font-semibold text-brand-secondary mb-2">Brand / Company Name</label>
