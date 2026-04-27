@@ -494,9 +494,7 @@ export default function App() {
           <a href="#" className="text-2xl font-heading font-black text-brand-secondary mb-4 inline-block">
             Poonam's <span className="text-brand-primary">Cookery</span>
           </a>
-          <div className="flex justify-center mb-6">
-            <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FMohammadBinAftab%2Fpc&count_bg=%23E65C00&title_bg=%232E4034&icon=&icon_color=%23E7E7E7&title=Page+Views&edge_flat=true" alt="Visitor Counter" className="h-6 rounded shadow-sm hover:scale-105 transition-transform cursor-pointer" />
-          </div>
+
           <p className="text-brand-muted text-sm">&copy; {new Date().getFullYear()} Poonam's Cookery. All rights reserved.</p>
         </div>
       </footer>
