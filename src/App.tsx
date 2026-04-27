@@ -124,7 +124,7 @@ export default function App() {
             <a href="#analytics" className="text-brand-secondary hover:text-brand-primary font-medium transition-colors">Analytics</a>
             <a href="#case-studies" className="text-brand-secondary hover:text-brand-primary font-medium transition-colors">Case Studies</a>
           </div>
-          <a href="#contact" className="bg-brand-primary hover:bg-[#cc5200] text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          <a href="#contact" className="bg-brand-primary hover:bg-[#cc5200] text-white px-4 py-2 text-sm md:px-6 md:py-2.5 md:text-base rounded-full font-medium transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap">
             Work With Us
           </a>
         </div>
@@ -456,11 +456,11 @@ export default function App() {
               <p className="text-gray-300 text-lg mb-10 relative z-10">Ready to tap into an audience of millions? Drop us a line and let's create a campaign that drives real results.</p>
               
               <div className="space-y-6 relative z-10">
-                <a href="mailto:poonambusiness85@gmail.com" className="flex items-center gap-4 text-xl font-medium hover:text-brand-accent transition-colors">
-                  <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                    <Mail className="w-6 h-6" />
+                <a href="mailto:poonambusiness85@gmail.com" className="flex items-center gap-3 md:gap-4 text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
+                  <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-white/10 rounded-full flex items-center justify-center">
+                    <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  poonambusiness85@gmail.com
+                  <span className="break-all">poonambusiness85@gmail.com</span>
                 </a>
               </div>
             </div>
