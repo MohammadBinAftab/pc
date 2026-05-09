@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import CountUp from 'react-countup';
 import { 
   ArrowRight, CheckCircle2, Play, Mail, MessageCircle, 
   BarChart3, TrendingUp, Users, Video, Camera, Award, Star, Quote, ChevronRight
@@ -13,7 +12,7 @@ const brands = [
   { name: 'Flipkart', logo: '/logos/flipkart.png' },
   { name: 'Country Delight', logo: '/logos/country-delight.png' },
   { name: 'Hamdard', logo: '/logos/hamdard.png' },
-  { name: 'Usha Cooks', logo: '/logos/usha-cooks.png' },
+  { name: 'Usha Cooks', logo: '/logos/usha-cook.png' },
   { name: 'Nestasia', logo: '/logos/nestasia.png' },
   { name: 'Dominos', logo: '/logos/dominos.png' },
   { name: 'AGARO', logo: '/logos/agaro.png' },
@@ -142,21 +141,19 @@ function App() {
             </motion.div>
           </div>
 
-          {/* Hero Stats */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {[
-              { label: 'Total Audience Reach', value: 2.46, suffix: 'M+', decimals: 2 },
-              { label: 'Monthly Views', value: 97, suffix: 'M+', decimals: 0 },
-              { label: 'YouTube Subscribers', value: 19.27, suffix: 'L+', decimals: 2 },
-              { label: 'Female Audience', value: 77.1, suffix: '%', decimals: 1 }
+              { label: 'Total Audience Reach', value: '2.46M+' },
+              { label: 'Monthly Views', value: '97M+' },
+              { label: 'YouTube Subscribers', value: '19.27L+' },
+              { label: 'Female Audience', value: '77.1%' }
             ].map((stat, idx) => (
               <div key={idx} className="bg-white/80 backdrop-blur-md p-6 rounded-3xl shadow-soft border border-white text-center">
                 <div className="text-3xl md:text-4xl font-heading font-bold text-brand-secondary mb-2 flex justify-center items-baseline">
-                  <CountUp end={stat.value} decimals={stat.decimals} duration={2.5} separator="," />
-                  <span>{stat.suffix}</span>
+                  <span>{stat.value}</span>
                 </div>
                 <div className="text-sm font-medium text-brand-muted uppercase tracking-wider">{stat.label}</div>
               </div>
@@ -172,12 +169,9 @@ function App() {
         
         <div className="marquee-container w-full">
           <div className="animate-marquee flex items-center min-w-max gap-16 md:gap-24 px-8 opacity-80">
-            {[...brands, ...brands, ...brands].map((brand, idx) => (
-              <div key={idx} className="flex items-center gap-2 group transition-transform duration-300 hover:scale-110 grayscale hover:grayscale-0">
-                 <img src={brand.logo} alt={brand.name} className="h-12 md:h-16 object-contain" onError={(e) => {
-                   e.currentTarget.style.display = 'none';
-                   e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                 }}/>
+            {[...brands, ...brands].map((brand, idx) => (
+              <div key={idx} className="flex items-center gap-2 group transition-transform duration-300 hover:scale-110">
+                 <img src={brand.logo} alt={brand.name} className={`object-contain ${['Nestasia', 'AGARO', 'Pintola'].includes(brand.name) ? 'h-20 md:h-24 mx-4' : 'h-12 md:h-16'}`} />
                  <span className="hidden font-heading font-bold text-2xl text-brand-secondary">{brand.name}</span>
               </div>
             ))}
@@ -191,33 +185,34 @@ function App() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div 
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn}
-              className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group"
+              className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group flex bg-white"
             >
-              <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2070&auto=format&fit=crop" alt="Poonam" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div className="absolute bottom-8 left-8 text-white">
-                <h3 className="text-3xl font-heading font-bold mb-2">Poonam</h3>
-                <p className="text-white/80 font-medium">Founder, Poonam's Cookery</p>
+              <img src="/creators/creator.jpg" alt="Maa-Beti Duo" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onError={(e) => { e.currentTarget.src = "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1000&auto=format&fit=crop" }} />
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="bg-white p-6 rounded-[2rem] shadow-2xl pointer-events-none border border-gray-100">
+                  <h3 className="text-3xl font-heading font-bold mb-2 text-brand-secondary">Maa-Beti Duo</h3>
+                  <p className="text-brand-muted font-medium">Founders, Poonam's Cookery</p>
+                </div>
               </div>
             </motion.div>
 
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer}>
-              <motion.div variants={fadeIn} className="text-brand-primary font-bold tracking-wider uppercase text-sm mb-4">The Creator</motion.div>
-              <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl font-heading font-bold mb-6 text-brand-secondary">Meet Poonam</motion.h2>
+              <motion.div variants={fadeIn} className="text-brand-primary font-bold tracking-wider uppercase text-sm mb-4">The Creators</motion.div>
+              <motion.h2 variants={fadeIn} className="text-4xl md:text-5xl font-heading font-bold mb-6 text-brand-secondary">Meet the Maa-Beti Duo</motion.h2>
               <motion.div variants={fadeIn} className="w-20 h-1 bg-brand-primary mb-8 rounded-full"></motion.div>
               
               <motion.p variants={fadeIn} className="text-lg text-brand-muted mb-6 leading-relaxed">
-                Poonam is a leading food creator known for elegant recipe videos, approachable cooking tutorials, and authentic storytelling. Her content combines visual aesthetics with practical recipes that resonate deeply with home cooks and food lovers across India.
+                We are a leading food creator duo known for elegant recipe videos, approachable cooking tutorials, and authentic storytelling. Our content combines visual aesthetics with practical recipes that resonate deeply with home cooks and food lovers across India.
               </motion.p>
               <motion.p variants={fadeIn} className="text-lg text-brand-muted mb-8 leading-relaxed">
-                With a highly engaged audience and millions of monthly views, she helps brands connect naturally with consumers through trusted recommendations.
+                With a highly engaged audience and millions of monthly views, we help brands connect naturally with consumers through trusted recommendations.
               </motion.p>
               
               <motion.div variants={fadeIn} className="flex gap-4">
-                <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm font-medium text-brand-secondary">
+                <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm font-medium text-brand-secondary border border-gray-100">
                   <CheckCircle2 className="w-5 h-5 text-brand-primary" /> Aesthetic Content
                 </div>
-                <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm font-medium text-brand-secondary">
+                <div className="flex items-center gap-2 bg-white px-6 py-3 rounded-full shadow-sm font-medium text-brand-secondary border border-gray-100">
                   <CheckCircle2 className="w-5 h-5 text-brand-primary" /> High Trust
                 </div>
               </motion.div>
@@ -227,88 +222,91 @@ function App() {
       </section>
 
       {/* Social Media Dashboard */}
-      <section id="dashboard" className="py-24 px-6 bg-brand-secondary text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-primary via-transparent to-transparent"></div>
+      <section id="dashboard" className="py-24 px-6 bg-white relative overflow-hidden border-t border-gray-100">
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-bl from-orange-50 to-transparent opacity-50 pointer-events-none"></div>
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">Performance Dashboard</h2>
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto">Scale, engagement, and consistent viral reach across all major platforms.</p>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4 text-brand-secondary">Performance Dashboard</h2>
+            <p className="text-brand-muted text-lg max-w-2xl mx-auto">Scale, engagement, and consistent viral reach across all major platforms.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {/* YouTube Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="bg-white shadow-soft border border-gray-100 rounded-[2rem] p-8 hover:-translate-y-1 transition-transform relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-red-50 rounded-bl-[100%] -z-10 transition-transform group-hover:scale-110"></div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 bg-red-500/20 rounded-full flex items-center justify-center">
-                  <FaYoutube className="w-7 h-7 text-red-500" />
+                <div className="w-14 h-14 bg-red-50 text-red-500 rounded-full flex items-center justify-center">
+                  <FaYoutube className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">YouTube</h3>
-                  <p className="text-gray-400 text-sm">Primary Engine</p>
+                  <h3 className="text-2xl font-bold text-brand-secondary">YouTube</h3>
+                  <p className="text-brand-muted text-sm">Primary Engine</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Subscribers</p>
-                  <p className="text-3xl font-heading font-bold">19,27,773+</p>
+                  <p className="text-brand-muted text-sm mb-1">Subscribers</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">19,27,773+</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Monthly Views</p>
-                  <p className="text-3xl font-heading font-bold">~90M+</p>
+                  <p className="text-brand-muted text-sm mb-1">Monthly Views</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">~90M+</p>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex justify-between text-sm">
-                  <span className="text-gray-400">Shorts & Long-Form</span>
+                <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
+                  <span className="text-brand-muted">Shorts & Long-Form</span>
                   <span className="text-brand-primary font-semibold">High Retention</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Instagram Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{...fadeIn, hidden: {opacity:0, y:20, transition:{delay: 0.2}}}} className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-colors">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{...fadeIn, hidden: {opacity:0, y:20, transition:{delay: 0.2}}}} className="bg-white shadow-soft border border-gray-100 rounded-[2rem] p-8 hover:-translate-y-1 transition-transform relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-bl-[100%] -z-10 transition-transform group-hover:scale-110"></div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 bg-pink-500/20 rounded-full flex items-center justify-center">
-                  <FaInstagram className="w-7 h-7 text-pink-400" />
+                <div className="w-14 h-14 bg-pink-50 text-pink-500 rounded-full flex items-center justify-center">
+                  <FaInstagram className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold">Instagram</h3>
-                  <p className="text-gray-400 text-sm">Visual Storytelling</p>
+                  <h3 className="text-2xl font-bold text-brand-secondary">Instagram</h3>
+                  <p className="text-brand-muted text-sm">Visual Storytelling</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Followers</p>
-                  <p className="text-3xl font-heading font-bold">366k+</p>
+                  <p className="text-brand-muted text-sm mb-1">Followers</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">366k+</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Avg. Reel Views</p>
-                  <p className="text-3xl font-heading font-bold">High Viral Rate</p>
+                  <p className="text-brand-muted text-sm mb-1">Avg. Reel Views</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">High Viral Rate</p>
                 </div>
-                <div className="pt-4 border-t border-white/10 flex justify-between text-sm">
-                  <span className="text-gray-400">Engagement</span>
-                  <span className="text-pink-400 font-semibold">Above Industry Avg</span>
+                <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
+                  <span className="text-brand-muted">Engagement</span>
+                  <span className="text-brand-primary font-semibold">Above Industry Avg</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Combined Card */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{...fadeIn, hidden: {opacity:0, y:20, transition:{delay: 0.4}}}} className="bg-gradient-to-br from-brand-primary/20 to-orange-500/10 border border-brand-primary/30 rounded-3xl p-8 hover:bg-brand-primary/20 transition-colors">
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{...fadeIn, hidden: {opacity:0, y:20, transition:{delay: 0.4}}}} className="bg-gradient-to-br from-brand-primary to-[#ff7a1f] text-white shadow-soft rounded-[2rem] p-8 hover:-translate-y-1 transition-transform relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-bl-[100%] -z-10 transition-transform group-hover:scale-110"></div>
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-14 h-14 bg-brand-primary/30 rounded-full flex items-center justify-center">
-                  <BarChart3 className="w-7 h-7 text-brand-primary" />
+                <div className="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center">
+                  <BarChart3 className="w-7 h-7 text-white" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold">Combined</h3>
-                  <p className="text-gray-400 text-sm">Total Footprint</p>
+                  <p className="text-orange-100 text-sm">Total Footprint</p>
                 </div>
               </div>
               <div className="space-y-6">
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Total Audience Reach</p>
+                  <p className="text-orange-100 text-sm mb-1">Total Audience Reach</p>
                   <p className="text-4xl font-heading font-bold text-white">2.46M+</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-sm mb-1">Monthly Impressions</p>
-                  <p className="text-4xl font-heading font-bold text-brand-primary">97M+</p>
+                  <p className="text-orange-100 text-sm mb-1">Monthly Impressions</p>
+                  <p className="text-4xl font-heading font-bold text-white">97M+</p>
                 </div>
               </div>
             </motion.div>
@@ -430,15 +428,59 @@ function App() {
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="md:w-1/2 relative">
               <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl relative bg-black group">
-                <img src="https://img.youtube.com/vi/tIT0HfUJP2Q/maxresdefault.jpg" alt="YouTube Growth" className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <a href="https://www.youtube.com/watch?v=tIT0HfUJP2Q" target="_blank" rel="noreferrer" className="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center pl-2 hover:scale-110 transition-transform shadow-[0_0_30px_rgba(220,38,38,0.5)]">
-                    <Play className="w-8 h-8 text-white" />
-                  </a>
+                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="YouTube Growth" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6">
+                   <div className="bg-white/90 backdrop-blur p-4 rounded-xl flex items-center gap-4">
+                     <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><FaYoutube className="w-6 h-6"/></div>
+                     <div>
+                       <p className="font-bold text-brand-secondary">Trending #1</p>
+                       <p className="text-sm text-brand-muted">Consistent viral recipe formats</p>
+                     </div>
+                   </div>
                 </div>
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured In / Achievements */}
+      <section className="py-24 px-6 bg-brand-light relative overflow-hidden border-t border-gray-100">
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="bg-white rounded-[3rem] p-8 md:p-12 shadow-soft border border-gray-100 flex flex-col md:flex-row gap-12 items-center">
+            <motion.div variants={fadeIn} className="md:w-1/2 w-full">
+              <div className="aspect-video rounded-[2rem] overflow-hidden shadow-2xl relative bg-black group">
+                <img src="https://img.youtube.com/vi/tIT0HfUJP2Q/maxresdefault.jpg" alt="Josh Talks" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <a href="https://www.youtube.com/watch?v=tIT0HfUJP2Q" target="_blank" rel="noreferrer" className="w-20 h-20 bg-red-600/90 backdrop-blur-sm rounded-full flex items-center justify-center pl-2 hover:scale-110 transition-all shadow-[0_0_30px_rgba(220,38,38,0.5)]">
+                    <Play className="w-8 h-8 fill-white text-white" />
+                  </a>
+                </div>
+                <div className="absolute top-6 left-6">
+                  <span className="bg-black/60 backdrop-blur-md text-white px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">
+                    Featured Speaker
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeIn} className="md:w-1/2">
+              <div className="flex items-center gap-2 text-brand-primary font-bold tracking-wider uppercase text-sm mb-4">
+                <Award className="w-6 h-6" /> Milestone Achievement
+              </div>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-brand-secondary">Josh Talks Feature</h2>
+              <p className="text-lg text-brand-muted mb-8 leading-relaxed">
+                Poonam's inspiring journey of turning a passion for cooking into a massive digital empire was recently featured on Josh Talks, inspiring millions of women across India to pursue their dreams.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <a href="https://www.youtube.com/watch?v=tIT0HfUJP2Q" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-brand-primary hover:bg-[#cc5200] text-white px-8 py-4 rounded-full font-semibold transition-all shadow-md hover:shadow-lg">
+                  Watch the Full Talk <Play className="w-4 h-4 fill-white" />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
@@ -579,11 +621,11 @@ function App() {
                   </div>
                   <span className="truncate">poonambusiness85@gmail.com</span>
                 </a>
-                <a href="https://wa.me/916291462676" target="_blank" rel="noreferrer" className="flex items-center gap-3 md:gap-4 text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
+                <a href="https://wa.me/919477353657" target="_blank" rel="noreferrer" className="flex items-center gap-3 md:gap-4 text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-green-500/20 rounded-full flex items-center justify-center">
                     <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-green-400" />
                   </div>
-                  <span>+91 6291462676</span>
+                  <span>+91 94773 53657</span>
                 </a>
               </div>
             </div>
