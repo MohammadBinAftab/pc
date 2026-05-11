@@ -82,6 +82,18 @@ const staggerContainer = {
 
 function App() {
   const [scrolled, setScrolled] = useState(false);
+  const [formData, setFormData] = useState({ brand: '', goals: '' });
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.brand.trim()) {
+      return;
+    }
+    
+    const message = `Hi Poonam's Cookery Team! 👋\n\nI am reaching out from *${formData.brand}*.\n\n*Our Campaign Goals:*\n${formData.goals || "Not specified yet."}\n\nWe would love to request your media kit and discuss potential rates.`;
+    const whatsappUrl = `https://wa.me/919477353657?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -146,7 +158,7 @@ function App() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {[
-              { label: 'Total Audience Reach', value: '2.46M+' },
+              { label: 'Total Followers', value: '2.46M+' },
               { label: 'Monthly Views', value: '97M+' },
               { label: 'YouTube Subscribers', value: '19.27L+' },
               { label: 'Female Audience', value: '77.1%' }
@@ -301,7 +313,7 @@ function App() {
               </div>
               <div className="space-y-6">
                 <div>
-                  <p className="text-orange-100 text-sm mb-1">Total Audience Reach</p>
+                  <p className="text-orange-100 text-sm mb-1">Total Followers</p>
                   <p className="text-4xl font-heading font-bold text-white">2.46M+</p>
                 </div>
                 <div>
@@ -427,9 +439,17 @@ function App() {
             </motion.div>
             
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="md:w-1/2 relative">
-              <div className="aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl relative bg-black group">
-                <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?q=80&w=2070&auto=format&fit=crop" alt="YouTube Growth" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
+              <a href="https://www.youtube.com/shorts/qEnhMi9D3bk" target="_blank" rel="noreferrer" className="block aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl relative bg-black group cursor-pointer">
+                <img src="https://img.youtube.com/vi/qEnhMi9D3bk/maxresdefault.jpg" alt="YouTube Growth" className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                
+                {/* Play Button Overlay */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-20 h-20 bg-red-600/90 backdrop-blur-sm rounded-full flex items-center justify-center pl-2 group-hover:scale-110 transition-all shadow-[0_0_30px_rgba(220,38,38,0.5)]">
+                    <Play className="w-8 h-8 fill-white text-white" />
+                  </div>
+                </div>
+
                 <div className="absolute bottom-6 left-6 right-6">
                    <div className="bg-white/90 backdrop-blur p-4 rounded-xl flex items-center gap-4">
                      <div className="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><FaYoutube className="w-6 h-6"/></div>
@@ -439,7 +459,7 @@ function App() {
                      </div>
                    </div>
                 </div>
-              </div>
+              </a>
             </motion.div>
           </div>
         </div>
@@ -495,9 +515,9 @@ function App() {
           <div className="bg-brand-light rounded-[3rem] p-8 md:p-12 shadow-soft border border-gray-100 flex flex-col md:flex-row gap-12 items-center">
             {/* Reel Mockup */}
             <div className="w-full md:w-[350px] shrink-0 relative rounded-[2rem] overflow-hidden shadow-2xl bg-black aspect-[9/16]">
-               <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=2070&auto=format&fit=crop" alt="Viral Reel Placeholder" className="w-full h-full object-cover opacity-80" />
+               <img src="/reel-thumbnail.png" alt="Viral Reel Thumbnail" className="w-full h-full object-cover opacity-80" />
                <div className="absolute inset-0 flex items-center justify-center flex-col gap-4">
-                 <a href="https://www.instagram.com/reel/DVnR6fKkSs5/" target="_blank" rel="noreferrer" className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full text-white font-medium border border-white/40 flex items-center gap-2 hover:bg-white/30 transition-colors">
+                 <a href="https://www.instagram.com/reel/DIOjbeZS7Hp/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" target="_blank" rel="noreferrer" className="bg-white/20 backdrop-blur-md px-6 py-3 rounded-full text-white font-medium border border-white/40 flex items-center gap-2 hover:bg-white/30 transition-colors">
                    <FaInstagram className="w-5 h-5" /> Watch on Instagram
                  </a>
                </div>
@@ -506,10 +526,10 @@ function App() {
             {/* Metrics */}
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
               {[
-                { label: 'Views', value: '18,688,421' },
-                { label: 'Likes', value: '2,99,625' },
-                { label: 'Saves', value: '62,396' },
-                { label: 'Shares', value: '50,333' }
+                { label: 'Views', value: '44M+' },
+                { label: 'Likes', value: '1.3M' },
+                { label: 'Saves', value: '630k' },
+                { label: 'Shares', value: '970k' }
               ].map((stat, idx) => (
                 <motion.div key={idx} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-center items-center text-center hover:shadow-md transition-shadow">
                   <div className="text-4xl md:text-5xl font-heading font-bold text-brand-primary mb-2">{stat.value}</div>
@@ -631,16 +651,29 @@ function App() {
             </div>
             
             <div className="p-8 sm:p-12 md:p-16">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-6" onSubmit={handleContactSubmit}>
                 <div>
                   <label className="block text-sm font-semibold text-brand-secondary mb-2">Brand / Company Name</label>
-                  <input type="text" className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all" placeholder="E.g., Flipkart" />
+                  <input 
+                    type="text" 
+                    required
+                    value={formData.brand}
+                    onChange={(e) => setFormData({...formData, brand: e.target.value})}
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all" 
+                    placeholder="E.g., Flipkart" 
+                  />
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-brand-secondary mb-2">Campaign Goals</label>
-                  <textarea rows={4} className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all resize-none" placeholder="Tell us what you want to achieve..."></textarea>
+                  <textarea 
+                    rows={4} 
+                    value={formData.goals}
+                    onChange={(e) => setFormData({...formData, goals: e.target.value})}
+                    className="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary transition-all resize-none" 
+                    placeholder="Tell us what you want to achieve..."
+                  ></textarea>
                 </div>
-                <button className="w-full bg-brand-primary hover:bg-[#cc5200] text-white font-bold py-4 rounded-xl transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2">
+                <button type="submit" className="w-full bg-brand-primary hover:bg-[#cc5200] text-white font-bold py-4 rounded-xl transition-colors shadow-md hover:shadow-lg flex items-center justify-center gap-2">
                   Request Media Kit & Rates <ArrowRight className="w-5 h-5" />
                 </button>
               </form>
