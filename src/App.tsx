@@ -615,11 +615,11 @@ function App() {
               <p className="text-gray-300 text-lg mb-10 relative z-10">Partner with Poonam's Cookery to craft visually stunning campaigns that inspire millions and drive measurable results.</p>
               
               <div className="space-y-6 relative z-10">
-                <a href="mailto:poonambusiness85@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm sm:text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
+                <a href="mailto:vpoonam529@gmail.com" className="flex items-center gap-3 md:gap-4 text-sm sm:text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-white/10 rounded-full flex items-center justify-center">
                     <Mail className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
-                  <span className="truncate">poonambusiness85@gmail.com</span>
+                  <span className="truncate">vpoonam529@gmail.com</span>
                 </a>
                 <a href="https://wa.me/919477353657" target="_blank" rel="noreferrer" className="flex items-center gap-3 md:gap-4 text-base md:text-xl font-medium hover:text-brand-accent transition-colors">
                   <div className="w-10 h-10 md:w-12 md:h-12 shrink-0 bg-green-500/20 rounded-full flex items-center justify-center">
