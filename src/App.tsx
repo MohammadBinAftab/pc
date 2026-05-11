@@ -278,7 +278,7 @@ function App() {
                 </div>
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Avg. Reel Views</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">High Viral Rate</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">589K+</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
                   <span className="text-brand-muted">Engagement</span>
