@@ -246,11 +246,11 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Subscribers</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">19,27,773+</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">1.9M+</p>
                 </div>
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Monthly Views</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">~90M+</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">~65M+</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
                   <span className="text-brand-muted">Shorts & Long-Form</span>
