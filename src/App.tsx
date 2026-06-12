@@ -286,7 +286,7 @@ function App() {
               <div className="space-y-6">
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Followers</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">366k+</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">370k+</p>
                 </div>
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Avg. Reel Views</p>
