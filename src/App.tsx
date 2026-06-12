@@ -158,9 +158,9 @@ function App() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8"
           >
             {[
-              { label: 'Total Followers', value: '2.46M+' },
+              { label: 'Total Followers', value: '2.56M+' },
               { label: 'Monthly Views', value: '97M+' },
-              { label: 'YouTube Subscribers', value: '19.27L+' },
+              { label: 'YouTube Subscribers', value: '19.86L+' },
               { label: 'Female Audience', value: '77.1%' }
             ].map((stat, idx) => (
               <div key={idx} className="bg-white/80 backdrop-blur-md p-6 rounded-3xl shadow-soft border border-white text-center">
@@ -262,7 +262,7 @@ function App() {
                 </div>
                 <div>
                   <p className="text-brand-muted text-sm mb-1">Monthly Views</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">~65M+</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">~84M+</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
                   <span className="text-brand-muted">Shorts & Long-Form</span>
@@ -289,8 +289,8 @@ function App() {
                   <p className="text-3xl font-heading font-bold text-brand-secondary">370k+</p>
                 </div>
                 <div>
-                  <p className="text-brand-muted text-sm mb-1">Avg. Reel Views</p>
-                  <p className="text-3xl font-heading font-bold text-brand-secondary">589K+</p>
+                  <p className="text-brand-muted text-sm mb-1">30 Day Reel Views</p>
+                  <p className="text-3xl font-heading font-bold text-brand-secondary">32.2M+</p>
                 </div>
                 <div className="pt-4 border-t border-gray-100 flex justify-between text-sm">
                   <span className="text-brand-muted">Engagement</span>
